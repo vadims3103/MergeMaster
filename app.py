@@ -44,12 +44,26 @@ class MergeMasterApp:
         self.output_folder_name.grid(column=2, row=2)
 
         # Labels and input for naming merged files
-        # TODO label for Template File keywords
+        # TODO wrapping label information as template file can include a lot of keywords
+        self.template_file_keyword_label = Label(self.window, text="The list of keywords used in the Template File: ${Name}, ${Surname}, ${Age}")
+        self.template_file_keyword_label.grid(column=0, row=3, columnspan=3)
+
         # TODO label and input for naming output file names
+        output_file_name_label = Label(self.window, text="Output file name:")
+        output_file_name_label.grid(column=0, row=4)
+
+        self.output_file_name = Entry(self.window, width=30)
+        self.output_file_name.grid(column=1, row=4, columnspan=3)
+        self.output_file_name.insert(0, "Template_File_${index}")
 
         # Error message and merge file button
         # TODO place for error information: if files and folder are not selected, data file do not include all keywords placed in template file
         # TODO button that stars process of merging files, it is not active if all files and folder are not selected
+        self.error_message_label = Label(self.window, text="This is an error message that displays if something is not correct")
+        self.error_message_label.grid(column=0, row=5, columnspan=2)
+
+        merge_button = Button(self.window, text="Merge Files")
+        merge_button.grid(column=2, row=5)
 
 
 root = Tk()
